@@ -3,10 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {Provider} from 'react-redux'
+import {createStore,applyMiddleware  } from "redux";
+import logger from "redux-logger"
+import thunk  from "redux-thunk"
+import reducers from './components/reducers'
+
+const store = createStore(reducers, applyMiddleware(thunk, logger))
+
+const ReduxApp = ()=>{
+  return (
+    <Provider store={store}>
+      <App/>
+    </Provider>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ReduxApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
