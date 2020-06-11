@@ -10,7 +10,6 @@ import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { useSelector, useDispatch } from "react-redux";
 import TextField from "@material-ui/core/TextField";
-import * as addressActions from "../../../actions/Address.action";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -76,7 +75,7 @@ export default function WebHook() {
                 <Button
                   color="secondary"
                   variant="contained"                        
-                  onClick={(name) => dispatch(addressActions.addlocation(name))}
+                  
                 >
                   ADD
                 </Button>

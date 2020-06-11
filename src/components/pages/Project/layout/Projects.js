@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { useSelector, useDispatch } from "react-redux";
 import TextField from "@material-ui/core/TextField";
-import * as addressActions from "../../../actions/Address.action";
+import AddProject from './addButton/AddProject'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -45,46 +45,7 @@ export default function Projects() {
           <h4>PROJECT</h4>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <div>
-            <Button
-              color="secondary"
-              className="Button"
-              onClick={handleClickOpen}
-              onChange={handleChange}
-            >
-              <AddCircleIcon color="secondary" />
-              <h5>ADD PROJECT </h5>
-            </Button>
-            <Dialog open={open} onClose={handleClose}>
-              <DialogTitle id="alert-dialog-title">
-                {"ADD PROJECT"}
-              </DialogTitle>
-              <DialogContent>
-                <DialogContentText id="alert-dialog-description">
-                  <form className={classes.root} noValidate autoComplete="off">
-                    <TextField
-                      id="standard-name"
-                      label="Name"
-                      value={name}
-                      onChange={handleChange}
-                    />
-                  </form>
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button
-                  color="secondary"
-                  variant="contained"                        
-                  onClick={(name) => dispatch(addressActions.addlocation(name))}
-                >
-                  ADD
-                </Button>
-                <Button onClick={handleClose} color="secondary" autoFocus>
-                  CANCLE
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </div>
+          <AddProject/>
         </Grid>
       </Grid>
       </div>

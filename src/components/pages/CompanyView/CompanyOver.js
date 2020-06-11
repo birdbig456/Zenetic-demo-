@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import General from "./layout/General";
-import Contactinfo from "./layout/ContactInfo";
+import ContactInfo from "./layout/ContactInfo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +30,7 @@ export default function CompanyOver() {
     <div>
       <General />
       <br/>
-        <Contactinfo />
+        <ContactInfo />
       
     </div>
   );
