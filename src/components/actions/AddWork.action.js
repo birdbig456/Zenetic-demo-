@@ -1,7 +1,8 @@
 import { ADDRESS_WORK} from "../constants"
 
-export const setAddressStateToLocation = () => ({
+export const setAddressStateToLocation = (payload) => ({
     type: ADDRESS_WORK,  
+    payload
 })
 
 export const addWork = (payload)=>{

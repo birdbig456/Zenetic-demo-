@@ -14,7 +14,7 @@ export default function AddWork() {
   const [open, setOpen] = React.useState(false);
   const addWorkReducer = useSelector(({ addWorkReducer }) => addWorkReducer);
   const dispatch = useDispatch();
-  const [dataWork, setDataWork] = useState({ name: "", code: "" });
+  const [dataWork, setDataWork] = useState({ name: "", code: "" ,address:{country:"",street:"",apt:"",city:"",state:"",zip:""},phone:""});
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -81,7 +81,12 @@ export default function AddWork() {
               label="Country"
               fullWidth
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ 
+                  ...dataWork,
+                    
+                  address:{country : e.target.value },
+                  ...dataWork.address
+                });
               }}
             />
             <TextField
@@ -90,7 +95,12 @@ export default function AddWork() {
               label="Street Address"
               style={{width:"60%"}}
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ 
+                  ...dataWork,
+                    
+                  address:{street : e.target.value },
+                  ...dataWork.address
+                });
               }}
             />
             <TextField
@@ -99,7 +109,7 @@ export default function AddWork() {
               label="Apt"
               style={{width:"35%",marginLeft:18}}
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ ...dataWork, address:{apt : e.target.value }});
               }}
             />
             <TextField
@@ -108,7 +118,7 @@ export default function AddWork() {
               label="City"
               style={{width:"35%"}}
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ ...dataWork, address:{city : e.target.value }});
               }}
             />
             <TextField
@@ -117,7 +127,7 @@ export default function AddWork() {
               label="State"
               style={{width:"27%",marginLeft:18}}
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ ...dataWork, address:{state : e.target.value }});
               }}
             />
             <TextField
@@ -126,7 +136,7 @@ export default function AddWork() {
               label="ZIP Code"
               style={{width:"28%",marginLeft:18}}
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ ...dataWork, address:{zip : e.target.value }});
               }}
             />
             </Grid>
@@ -142,7 +152,7 @@ export default function AddWork() {
               label="Required"
               fullWidth
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataWork({ ...dataWork, phone: e.target.value });
               }}
             />
             </Grid>
