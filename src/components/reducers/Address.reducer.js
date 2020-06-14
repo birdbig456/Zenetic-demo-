@@ -1,19 +1,16 @@
 import { ADDRESS_WORK } from "../constants"
 
 
-{/*export default (state = [], { type, payload }) => {
-    switch (type) {
-
-    case ADDRESS_WORK:
-        return { ...state, state:payload }
-        
-    default:
-        return state
-    }
-}*/}
-
 const workAddress = {
-  
+  name:"",
+  code:"",
+  country:"",
+  street:"",
+  apt:"",
+  city:"",
+  state:"",
+  zip:"",
+  phone:""
 };
 
 export default (state = workAddress, { type, payload }) => {
@@ -22,20 +19,18 @@ export default (state = workAddress, { type, payload }) => {
       case ADDRESS_WORK:
         return {
           ...state,
-           state:payload,
+           name:payload.name,
+           code:payload.code,
+           country:payload.country,
+           street:payload.street,
+           apt:payload.apt,
+           city:payload.city,
+           state:payload.state,
+           zip:payload.zip,
+           phone:payload.phone,
         };
       default:
         return state;
     }
   };
 
-{/*const addWorkLoad = (state = [], action) => {
-    switch (action.type) {
-      case 'ADDRESS_WORK':
-        return { ...state, addWorkLoad: action.addWorkLoad };
-      default:
-        return state
-    }
-  }
-  
-export default addWorkLoad*/}

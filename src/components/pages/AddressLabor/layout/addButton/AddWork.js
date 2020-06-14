@@ -14,7 +14,17 @@ export default function AddWork() {
   const [open, setOpen] = React.useState(false);
   const addWorkReducer = useSelector(({ addWorkReducer }) => addWorkReducer);
   const dispatch = useDispatch();
-  const [dataWork, setDataWork] = useState({ name: "", code: "" ,address:{country:"",street:"",apt:"",city:"",state:"",zip:""},phone:""});
+  const [dataWork, setDataWork] = useState({
+    name: "",
+    code: "",
+    country: "",
+    street: "",
+    apt: "",
+    city: "",
+    state: "",
+    zip: "",
+    phone: "",
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -38,129 +48,129 @@ export default function AddWork() {
         <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
         <DialogContent>
           <Grid container>
-          <Grid sm={1} ></Grid>
+            <Grid sm={1}></Grid>
             <Grid xs={12} sm={2}>
               <h3>Name :</h3>
             </Grid>
             <Grid xs={12} sm={8}>
-            <TextField
-              required
-              id="margin-dense"
-              label="Required"
-              fullWidth
-              onChange={(e) => {
-                setDataWork({ ...dataWork, name: e.target.value });
-              }}
-            />
+              <TextField
+                required
+                
+                label="Required"
+                fullWidth
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, name: e.target.value });
+                }}
+              />
             </Grid>
-            <Grid sm={1} ></Grid>
-            <Grid sm={1} ></Grid>
+            <Grid sm={1}></Grid>
+            <Grid sm={1}></Grid>
             <Grid xs={12} sm={2}>
               <h3>Code :</h3>
             </Grid>
             <Grid xs={12} sm={8}>
-            <TextField
-              required
-              id="margin-dense"
-              label="Required"
-              fullWidth
-              onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
-              }}
-            />
+              <TextField
+                required
+                
+                label="Required"
+                fullWidth
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, code: e.target.value });
+                }}
+              />
             </Grid>
-            <Grid sm={1} ></Grid>
-            <Grid sm={1} ></Grid>
+            <Grid sm={1}></Grid>
+            <Grid sm={1}></Grid>
             <Grid xs={12} sm={2}>
               <h3>Address :</h3>
             </Grid>
             <Grid xs={12} sm={8}>
-            <TextField
-              required
-              id="margin-dense"
-              label="Country"
-              fullWidth
-              onChange={(e) => {
-                setDataWork({ 
-                  ...dataWork,
-                    
-                  address:{country : e.target.value },
-                  ...dataWork.address
-                });
-              }}
-            />
-            <TextField
-              required
-              id="margin-dense"
-              label="Street Address"
-              style={{width:"60%"}}
-              onChange={(e) => {
-                setDataWork({ 
-                  ...dataWork,
-                    
-                  address:{street : e.target.value },
-                  ...dataWork.address
-                });
-              }}
-            />
-            <TextField
-              required
-              id="margin-dense"
-              label="Apt"
-              style={{width:"35%",marginLeft:18}}
-              onChange={(e) => {
-                setDataWork({ ...dataWork, address:{apt : e.target.value }});
-              }}
-            />
-            <TextField
-              required
-              id="margin-dense"
-              label="City"
-              style={{width:"35%"}}
-              onChange={(e) => {
-                setDataWork({ ...dataWork, address:{city : e.target.value }});
-              }}
-            />
-            <TextField
-              required
-              id="margin-dense"
-              label="State"
-              style={{width:"27%",marginLeft:18}}
-              onChange={(e) => {
-                setDataWork({ ...dataWork, address:{state : e.target.value }});
-              }}
-            />
-            <TextField
-              required
-              id="margin-dense"
-              label="ZIP Code"
-              style={{width:"28%",marginLeft:18}}
-              onChange={(e) => {
-                setDataWork({ ...dataWork, address:{zip : e.target.value }});
-              }}
-            />
+              <TextField
+                required
+               
+                label="Country"
+                fullWidth
+                onChange={(e) => {
+                  setDataWork({
+                    ...dataWork,
+
+                    address: { country: e.target.value },
+                    ...dataWork.address,
+                  });
+                }}
+              />
+              <TextField
+                required
+                
+                label="Street Address"
+                style={{ width: "60%" }}
+                onChange={(e) => {
+                  setDataWork({
+                    ...dataWork,
+
+                    address: { street: e.target.value },
+                    ...dataWork.address,
+                  });
+                }}
+              />
+              <TextField
+                required
+               
+                label="Apt"
+                style={{ width: "35%", marginLeft: 18 }}
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, apt: e.target.value });
+                }}
+              />
+              <TextField
+                required
+                
+                label="City"
+                style={{ width: "35%" }}
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, city: e.target.value });
+                }}
+              />
+              <TextField
+                required
+                
+                label="State"
+                style={{ width: "27%", marginLeft: 18 }}
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, state: e.target.value });
+                }}
+              />
+              <TextField
+                required
+                
+                label="ZIP Code"
+                style={{ width: "28%", marginLeft: 18 }}
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, zip: e.target.value });
+                }}
+              />
             </Grid>
-            <Grid sm={1} ></Grid>
-            <Grid sm={1} ></Grid>
+            <Grid sm={1}></Grid>
+            <Grid sm={1}></Grid>
             <Grid xs={12} sm={2}>
               <h3>Phone :</h3>
             </Grid>
             <Grid xs={12} sm={8}>
-            <TextField
-              required
-              id="margin-dense"
-              label="Required"
-              fullWidth
-              onChange={(e) => {
-                setDataWork({ ...dataWork, phone: e.target.value });
-              }}
-            />
+              <TextField
+                required
+                
+                label="Required"
+                fullWidth
+                onChange={(e) => {
+                  setDataWork({ ...dataWork, phone: e.target.value });
+                }}
+              />
             </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={(e) => dispatch(addWorkActions.addWork(dataWork))}
+            onClick={(e) => dispatch(addWorkActions.addWork(dataWork),handleClose())}
             color="primary"
           >
             Submit

@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { useSelector, useDispatch } from "react-redux";
 import AddWork from './addButton/AddWork'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -16,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
 export default function WorkLocation() {
   const classes = useStyles();
   
-  const addressReducer = useSelector((state) => state.addressReducer);
+  const addressReducer = useSelector(({addressReducer}) =>addressReducer );
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
@@ -33,7 +35,7 @@ export default function WorkLocation() {
           <h4>{addressReducer.name}</h4>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <p>Siam Cement Road Bangkok, CA 10800 </p>
+          <p>{addressReducer.street}  {" "}  {addressReducer.city} , {addressReducer.state} {addressReducer.zip}</p>
         </Grid>
       </Grid>
     </div>
