@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { useSelector, useDispatch } from "react-redux";
-import * as addWorkActions from "../../../../actions/AddWork.action";
+import * as addPositionActions from "../../../../actions/AddPosition.action";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { Grid } from "@material-ui/core";
 export default function AddPosition() {
@@ -36,6 +36,7 @@ export default function AddPosition() {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">ADD POSITION</DialogTitle>
+        <form onSubmit={(e) => dispatch(addPositionActions.addPosition(dataWork),handleClose())} >
         <DialogContent>
           <Grid container>
           <Grid sm={1} ></Grid>
@@ -74,7 +75,7 @@ export default function AddPosition() {
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={(e) => dispatch(addWorkActions.addWork(dataWork))}
+            type="submit"
             color="primary"
           >
             Submit
@@ -83,6 +84,7 @@ export default function AddPosition() {
             Cancel
           </Button>
         </DialogActions>
+        </form>
       </Dialog>
     </div>
   );

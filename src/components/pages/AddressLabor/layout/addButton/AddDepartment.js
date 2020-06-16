@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as addWorkActions from "../../../../actions/AddWork.action";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { Grid } from "@material-ui/core";
+import * as addDepartActions from "../../../../actions/AddDepart.action";
 export default function AddDepartment() {
   const [open, setOpen] = React.useState(false);
   const addWorkReducer = useSelector(({ addWorkReducer }) => addWorkReducer);
@@ -36,6 +37,9 @@ export default function AddDepartment() {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">ADD DEPARTMENT</DialogTitle>
+        <form onSubmit={(e) =>
+              dispatch(addDepartActions.addDepartment(dataWork), handleClose())}
+              >
         <DialogContent>
           <Grid container>
           <Grid sm={1} ></Grid>
@@ -74,7 +78,8 @@ export default function AddDepartment() {
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={(e) => dispatch(addWorkActions.addWork(dataWork))}
+          type="submit"
+            
             color="primary"
           >
             Submit
@@ -83,6 +88,7 @@ export default function AddDepartment() {
             Cancel
           </Button>
         </DialogActions>
+        </form>
       </Dialog>
     </div>
   );

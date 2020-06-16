@@ -1,3 +1,5 @@
 import { combineReducers } from "redux";
 import addressReducer from "./Address.reducer"
-export default combineReducers({addressReducer})
+import addDepartReducer from "./AddDepart.reducer"
+import addPositionReducer from "./AddPosition.reducer"
+export default combineReducers({addressReducer,addDepartReducer,addPositionReducer})

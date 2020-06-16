@@ -1,11 +1,15 @@
 import {ADDRESS_POSITION} from "../constants"
 
-export const setAddressStateToPosition = () => ({
+export const setAddressStateToPosition = (payload) => ({
     type: ADDRESS_POSITION,  
+    payload
 })
 
-export const addPosition = ()=>{
+export const addPosition = (payload)=>{
     return dispatch=>{
-        dispatch(setAddressStateToPosition())
+        console.log(payload)
+        dispatch(setAddressStateToPosition(payload))
     }
 }
+
+
