@@ -26,6 +26,7 @@ export default function AddWork() {
     phone: "",
   });
 
+  
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -91,12 +92,7 @@ export default function AddWork() {
                 label="Country"
                 fullWidth
                 onChange={(e) => {
-                  setDataWork({
-                    ...dataWork,
-
-                    address: { country: e.target.value },
-                    ...dataWork.address,
-                  });
+                  setDataWork({ ...dataWork, country: e.target.value });
                 }}
               />
               <TextField
@@ -105,12 +101,7 @@ export default function AddWork() {
                 label="Street Address"
                 style={{ width: "60%" }}
                 onChange={(e) => {
-                  setDataWork({
-                    ...dataWork,
-
-                    address: { street: e.target.value },
-                    ...dataWork.address,
-                  });
+                  setDataWork({ ...dataWork, street: e.target.value });
                 }}
               />
               <TextField
@@ -170,6 +161,7 @@ export default function AddWork() {
         </DialogContent>
         <DialogActions>
           <Button
+          type="submit"
             onClick={(e) => dispatch(addWorkActions.addWork(dataWork),handleClose())}
             color="primary"
           >
