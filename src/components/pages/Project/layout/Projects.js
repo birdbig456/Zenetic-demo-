@@ -35,7 +35,7 @@ export default function Projects() {
   const handleClose = () => {
     setOpen(false);
   };
-  const addressReducer = useSelector((state) => state.addressReducer);
+  const addProjectReducer = useSelector((state) => state.addProjectReducer);
   const dispatch = useDispatch();
   return (
     <div className={classes.root}>
@@ -50,14 +50,20 @@ export default function Projects() {
       </Grid>
       </div>
       <hr/>
-      <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
-      <h4>Pre-Project</h4>
-      </Grid>
-      <Grid item xs={12} sm={6}>
-          <p>8 Assigned People </p>
-        </Grid>
-      </Grid>
+      {addProjectReducer.map((item) => (
+            <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+                          <h4>{item.name}</h4>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+            
+              <p>
+                {0} Assigned People
+              </p>
+            
+          </Grid>
+          </Grid>
+          ))}
     </div>
   );
 }

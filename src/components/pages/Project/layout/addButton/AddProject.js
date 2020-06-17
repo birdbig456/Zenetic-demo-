@@ -7,14 +7,14 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { useSelector, useDispatch } from "react-redux";
-import * as addWorkActions from "../../../../actions/AddWork.action";
+import * as addProjectAction from "../../../../actions/Add.Project.action";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
-import { Grid } from "@material-ui/core";
+import { Grid, Input } from "@material-ui/core";
 export default function AddProject() {
   const [open, setOpen] = React.useState(false);
-  const addWorkReducer = useSelector(({ addWorkReducer }) => addWorkReducer);
+  const addProjectReducer = useSelector(({ addProjectReducer }) => addProjectReducer);
   const dispatch = useDispatch();
-  const [dataWork, setDataWork] = useState({ name: "", code: "" });
+  const [dataProject, setDataProject] = useState({ name: "", code: ""});
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,6 +36,7 @@ export default function AddProject() {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">ADD Project</DialogTitle>
+        <form onSubmit={(e)=>dispatch(addProjectAction.addProject(dataProject),handleClose())} >
         <DialogContent>
           <Grid container>
           <Grid sm={1} ></Grid>
@@ -49,7 +50,7 @@ export default function AddProject() {
               label="Required"
               fullWidth
               onChange={(e) => {
-                setDataWork({ ...dataWork, name: e.target.value });
+                setDataProject({ ...dataProject, name: e.target.value });
               }}
             />
             </Grid>
@@ -65,16 +66,20 @@ export default function AddProject() {
               label="Required"
               fullWidth
               onChange={(e) => {
-                setDataWork({ ...dataWork, code: e.target.value });
+                setDataProject({ ...dataProject, code: e.target.value });
               }}
             />
             </Grid>
+            <Grid sm={1} ></Grid>
+            <Grid sm={1} ></Grid>
+            <Grid xs={12} sm={10}>
             
+            </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
           <Button
-            onClick={(e) => dispatch(addWorkActions.addWork(dataWork))}
+            type="submit"
             color="primary"
           >
             Submit
@@ -83,6 +88,7 @@ export default function AddProject() {
             Cancel
           </Button>
         </DialogActions>
+        </form>
       </Dialog>
     </div>
   );
